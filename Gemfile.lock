@@ -140,6 +140,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    rb-readline (0.5.5)
     redis (4.1.0)
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
@@ -206,6 +207,7 @@ DEPENDENCIES
   pry-rails
   puma
   rails (= 5.2.2)
+  rb-readline
   redis
   sassc-rails
   simple_form
