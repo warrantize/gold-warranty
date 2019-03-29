@@ -1,1 +1,0 @@
-manage your warranty lifecyle
