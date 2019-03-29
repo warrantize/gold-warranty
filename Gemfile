@@ -21,7 +21,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'pry-byebug'
+  # gem 'pry-byebug' problem avec readline
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
