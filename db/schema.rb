@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_05_144221) do
+ActiveRecord::Schema.define(version: 2019_04_08_164252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "manufacturers", force: :cascade do |t|
+    t.string "manufacturer_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "ean"
+    t.string "model_name"
+    t.string "picture"
+    t.bigint "manufacturer_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["manufacturer_id"], name: "index_products_on_manufacturer_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +51,19 @@ ActiveRecord::Schema.define(version: 2019_04_05_144221) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "warranties", force: :cascade do |t|
+    t.date "begin_date"
+    t.date "end_date"
+    t.bigint "user_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_warranties_on_product_id"
+    t.index ["user_id"], name: "index_warranties_on_user_id"
+  end
+
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "manufacturers"
+  add_foreign_key "warranties", "products"
+  add_foreign_key "warranties", "users"
 end
