@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_164252) do
 
   create_table "products", force: :cascade do |t|
     t.string "ean"
-    t.string "model_name"
+    t.string "product_name"
     t.string "picture"
     t.bigint "manufacturer_id"
     t.bigint "category_id"
