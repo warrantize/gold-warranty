@@ -1,0 +1,51 @@
+<h1>Warranties#new</h1>
+<p>Find me in app/views/warranties/new.html.erb</p>
+<div class="container flex-container antinavbar" id="flex-container-signup">
+
+  <div class="flex-items">
+    <div class="registration-box">
+      <div class="row">
+
+        <div class="text-center">
+          <h1>Add a warranty</h1>
+        </div>
+
+        <%= simple_form_for @warranty do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+
+          <div class="form-inputs">
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <%= f.input :begin_date,
+                              html: { autocomplete: 'off' },
+                              class:"form-controls" %>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <%= f.input :end_date,
+                              html: { autocomplete: 'off' },
+                              class:"form-controls" %>
+                </div>
+              </div>
+            </div>
+
+          <div class="form-actions text-center">
+            <%= f.button :submit, class: 'btn-form' %>
+          </div>
+
+        <% end %>
+      </div>
+
+      <div class="text-center">
+        <%= link_to "Revenir à la liste", root_path %>
+      </div>
+    </div>
+  </div>
+</div>
