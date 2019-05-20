@@ -1,2 +1,71 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<div class="wrapper">
+  <div class="container">
+    <h1>Products#new</h1>
+    <p>Find me in app/views/products/new.html.erb</p>
+    <div class="row">
+
+    <!--  find a way to have list with manufacturer (brand) and product cateogy
+      t.bigint "manufacturer_id"
+      t.bigint "category_id"
+    -->
+
+      <%= simple_form_for @product do |f| %>
+                <%= f.error_notification %>
+                <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+                <div class="form-inputs">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <%= f.input :ean,
+                                    html: { autocomplete: 'off' },
+                                    class:"form-controls" %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <%= f.input :product_name,
+                                    html: { autocomplete: 'off' },
+                                    class:"form-controls" %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <%= f.input :manufacturer_id,
+                                    class:"form-controls" %>
+                      </div>
+                    </div>
+                  </div>
+                   <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <%= f.input :category_id,
+                                    class:"form-controls" %>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+                  <div class="form-group">
+                    <%= f.input :photo,
+                                class:"form-controls btn-form" %>
+                  </div>
+                  <%= f.input :photo_cache, as: :hidden %>
+
+                </div>
+                <div class="form-actions text-center">
+                  <%= f.button :submit, class: 'btn btn-flat' %>
+                </div>
+      <% end %>
+    </div>
+  </div>
+</div>

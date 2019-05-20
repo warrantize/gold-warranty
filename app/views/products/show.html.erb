@@ -1,2 +1,14 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="wrapper">
+<div class="container">
+  <h1>Products#show</h1>
+  <p>Find me in app/views/products/show.html.erb</p>
+
+  <p><%= @product.product_name %> </p>
+  <p><%= @product.ean %> </p>
+  <p><%= @product.category_id %> </p>
+  <p><%= @product.manufacturer_id %> </p>
+  <p>
+  <%= cl_image_tag(@product.photo, width: 400, height: 300, crop: :fill) %>
+  </p>
+</div>
+</div>
