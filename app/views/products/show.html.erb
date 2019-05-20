@@ -10,5 +10,6 @@
   <p>
   <%= cl_image_tag(@product.photo, width: 400) %>
   </p>
+  <%= link_to "upload my warranty" , new_product_warranty_path(@product)  %>
 </div>
 </div>

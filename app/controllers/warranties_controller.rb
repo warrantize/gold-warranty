@@ -19,6 +19,7 @@ class WarrantiesController < ApplicationController
   end
 
   def new
+    @product = Product.find(params[:product_id])
     @warranty = Warranty.new
   end
 

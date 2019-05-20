@@ -1,22 +1,9 @@
 Rails.application.routes.draw do
-  get 'products/index'
-  get 'products/create'
-  get 'products/show'
-  get 'products/new'
-  get 'products/edit'
-  get 'products/update'
-  get 'products/destroy'
-  # get 'warranties/index'
-  # get 'warranties/create'
-  # get 'warranties/new'
-  # get 'warranties/edit'
-  # get 'warranties/show'
-  # get 'warranties/update'
-  # get 'warranties/destroy'
   devise_for :users
   get 'page/home'
   root to: 'pages#home'
-  resources :warranties
-  resources :products
+  resources :products do
+    resources :warranties
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
