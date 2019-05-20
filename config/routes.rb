@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'products/index'
+  get 'products/create'
+  get 'products/show'
+  get 'products/new'
+  get 'products/edit'
+  get 'products/update'
+  get 'products/destroy'
   # get 'warranties/index'
   # get 'warranties/create'
   # get 'warranties/new'

@@ -1,9 +1,13 @@
 class WarrantiesController < ApplicationController
+
+    before_action :set_warranty, only: [:show, :edit, :update]
+
+
   def index
   end
 
 
-def create
+  def create
     @warranty = Warranty.new(warranty_params)
     @warranty.user = current_user
     # authorize @warranty
@@ -22,6 +26,7 @@ def create
   end
 
   def show
+    @product = Warranty.find(params[:id])
   end
 
   def update
@@ -29,4 +34,13 @@ def create
 
   def destroy
   end
+
+  private
+    def set_warranty
+      @warranty = Warranty.find(params[:id])
+    end
+
+    def warranty_params
+      params.require(:warranty).permit(:begin_date, :photo)
+    end
 end
