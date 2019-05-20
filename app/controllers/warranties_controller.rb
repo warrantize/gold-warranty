@@ -1,33 +1,37 @@
 class WarrantiesController < ApplicationController
 
     before_action :set_warranty, only: [:show, :edit, :update]
+    before_action :set_product, only: [:new, :create, :show, :update, :destroy]
 
 
   def index
   end
 
 
+  def new
+    @warranty = Warranty.new
+  end
+
   def create
+    @product = Product.find(params[:product_id])
     @warranty = Warranty.new(warranty_params)
-    @warranty.user = current_user
+    @warranty.product_id = @product.id
+    @warranty.end_date = @warranty.begin_date + 365*2
+    @warranty.user_id = current_user.id
     # authorize @warranty
     if @warranty.save
-      redirect_to warranty_path(@warranty)
+      redirect_to product_warranty_path(@product, @warranty)
     else
       render :new
     end
   end
 
-  def new
-    @product = Product.find(params[:product_id])
-    @warranty = Warranty.new
-  end
+
 
   def edit
   end
 
   def show
-    @product = Warranty.find(params[:id])
   end
 
   def update
@@ -39,9 +43,17 @@ class WarrantiesController < ApplicationController
   private
     def set_warranty
       @warranty = Warranty.find(params[:id])
+      @product = Product.find(params[:product_id])
+      @category = Category.find(@product.category_id)
+      @manufacturer = Manufacturer.find(@product.manufacturer_id)
     end
 
+    def set_product
+      @product = Product.find(params[:product_id])
+    end
+
+
     def warranty_params
-      params.require(:warranty).permit(:begin_date, :photo)
+      params.require(:warranty).permit(:begin_date, :photo, )
     end
 end

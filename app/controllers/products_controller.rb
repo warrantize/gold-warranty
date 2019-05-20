@@ -15,6 +15,8 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @category = Category.find(@product.category_id)
+    @manufacturer = Manufacturer.find(@product.manufacturer_id)
   end
 
   def new

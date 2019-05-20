@@ -8,15 +8,16 @@
       </div>
 
         <%= simple_form_for [@product, @warranty] do |f| %>
-          <%= f.error_notification %>
+        <%= f.error_notification %>
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
           <div class="form-inputs">
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
                   <%= f.input :begin_date,
-                              html: { autocomplete: 'off' },
-                              class:"form-controls" %>
+                                as: :string,
+                                input_html: {class: "datepicker"},
+                                label: "Date of purchase" %>
                 </div>
               </div>
 

@@ -1,2 +1,21 @@
 <h1>Warranties#show</h1>
 <p>Find me in app/views/warranties/show.html.erb</p>
+
+
+<div class="wrapper">
+<div class="container">
+
+  <strong>Your Warranty</strong> :     <%= @warranty.id %></br>
+  <strong>Started in</strong> : <%= @warranty.begin_date %></br>
+  <strong>Ending in</strong> : <%= @warranty.end_date %></br>
+
+  <p>
+  <%= cl_image_tag(@product.photo, width: 200) %>
+  </p>
+  <h1><%= @manufacturer.manufacturer_name %> - <%= @product.product_name %> </h1>
+  <p>EAN : <%= @product.ean %> </p>
+  <p><%= @category.category_name %> </p>
+
+  <%= link_to "Ask for a return " , new_product_warranty_path(@product)  %>
+</div>
+</div>
