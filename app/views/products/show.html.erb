@@ -1,12 +1,12 @@
 <div class="wrapper">
-<div class="container">
-  <p>
-  <%= cl_image_tag(@product.photo, width: 200) %>
-  </p>
-  <h1><%= @manufacturer.manufacturer_name %> - <%= @product.product_name %> </h1>
-  <p>EAN : <%= @product.ean %> </p>
-  <p><%= @category.category_name %> </p>
+  <div class="container">
+    <p>
+    <%= cl_image_tag(@product.photo, width: 200) %>
+    </p>
+    <h1><%= @manufacturer.manufacturer_name %> - <%= @product.product_name %> </h1>
+    <p>EAN : <%= @product.ean %> </p>
+    <p><%= @category.category_name %> </p>
 
-  <%= link_to "upload my warranty" , new_product_warranty_path(@product)  %>
-</div>
+    <%= link_to "upload my warranty" , new_product_warranty_path(@product)  %>
+  </div>
 </div>
