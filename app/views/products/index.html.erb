@@ -2,5 +2,6 @@
 <p>Find me in app/views/products/index.html.erb</p>
 
 <% @products.each  do |product|  %>
-  <p> <%= product.product_name %> </p>
+  <p> <%= product.product_name %>   <%= link_to "upload my warranty" , new_product_warranty_path(product.id)  %>
+</p>
 <% end %>
