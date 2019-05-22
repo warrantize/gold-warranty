@@ -22,6 +22,7 @@ gem 'carrierwave', '~> 1.2'
 
 # amazon
 # gem 'amazon-ecs', '~> 2.6'
+# gem 'nokogiri', '~> 1.10', '>= 1.10.3'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
