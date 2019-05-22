@@ -20,6 +20,9 @@ gem 'webpacker'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 
+# amazon
+# gem 'amazon-ecs', '~> 2.6'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
