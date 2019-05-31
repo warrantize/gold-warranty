@@ -54,6 +54,6 @@ class WarrantiesController < ApplicationController
 
 
     def warranty_params
-      params.require(:warranty).permit(:begin_date, :photo, )
+      params.require(:warranty).permit(:begin_date, :photo )
     end
 end

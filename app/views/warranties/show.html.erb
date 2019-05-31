@@ -11,6 +11,6 @@
     <p>EAN : <%= @product.ean %> </p>
     <p><%= @category.category_name %> </p>
 
-    <%= link_to "Ask for a return " , new_product_warranty_path(@product)  %>
+    <%= link_to "Ask for a return " , new_product_warranty_return_path(@product, @warranty)  %>
   </div>
 </div>

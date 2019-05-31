@@ -1,0 +1,40 @@
+<div class="wrapper">
+  <div class="container">
+    <H1>Return Details</H1>
+    <h2>Return</h2>
+    <p><strong>Warranty expiration</strong> :  <%= @warranty.end_date %>  <br> <strong>  Return request made on</strong> : <%= @return.created_at %></p>
+    <p>Initial Request : <%= @return.comment %></p>
+    <p>Current Status : <%= @return.status  %></p>
+    <h3> Update status</h3>
+    <%= simple_form_for [@product, @warranty, @return] do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <div class="form-inputs">
+          <div class="row">
+            <div class="col-sm-offset-3 col-sm-6">
+              <div class="form-group">
+                <%= f.input :status,
+                             priority: [ "New" ],
+                             collection: [ "New", "Rejected", "Accepted"] %>
+              </div>
+            </div>
+          </div>
+        <div class="form-actions text-center">
+          <%= f.button :submit, class: 'btn-form' %>
+        </div>
+        <% end %>
+
+
+    <h2>Product</h2>
+    <p>
+    <%= cl_image_tag(@product.photo, width: 200) %>
+    </p>
+    <h3><%= @manufacturer.manufacturer_name %> - <%= @product.product_name %> </h3>
+    <p>EAN : <%= @product.ean %> </p>
+    <p><%= @category.category_name %> </p>
+
+
+
+
+  </div>
+</div>

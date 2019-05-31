@@ -1,0 +1,40 @@
+
+<div class="wrapper">
+  <div class="container">
+        <div class="text-center">
+          <h1>Return your product</h1>
+        </div>
+
+        <%= simple_form_for [@product, @warranty, @return] do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <div class="form-inputs">
+          <div class="row">
+            <div class="col-sm-offset-3 col-sm-6">
+              <div class="form-group">
+                <%= f.input :comment,
+                              as: :text,
+                              label: "What is wrong with the product? " %>
+              </div>
+              <div class="form-group hidden">
+                <%= f.input :status,
+                              as: :string,
+                              label: "status",
+                              placeholder: "new",
+                              input_html: {value: "new"}
+                               %>
+              </div>
+            </div>
+          </div>
+        <div class="form-actions text-center">
+          <%= f.button :submit, class: 'btn-form' %>
+        </div>
+        <% end %>
+        </div>
+        <div class="text-center">
+          <%= link_to "Revenir à la liste", root_path %>
+        </div>
+
+    </div>
+  </div>
+</div>
