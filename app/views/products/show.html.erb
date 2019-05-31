@@ -7,6 +7,6 @@
     <p>EAN : <%= @product.ean %> </p>
     <p><%= @category.category_name %> </p>
 
-    <%= link_to "upload my warranty" , new_product_warranty_path(@product)  %>
+    <%= link_to "upload my warranty" , new_product_warranty_path(@product), class: " btn btn-flat"   %>
   </div>
 </div>
