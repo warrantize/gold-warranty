@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_20_133442) do
+ActiveRecord::Schema.define(version: 2019_05_31_081119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 2019_05_20_133442) do
     t.index ["manufacturer_id"], name: "index_products_on_manufacturer_id"
   end
 
+  create_table "returns", force: :cascade do |t|
+    t.bigint "warranty_id"
+    t.string "status"
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["warranty_id"], name: "index_returns_on_warranty_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -65,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_133442) do
 
   add_foreign_key "products", "categories"
   add_foreign_key "products", "manufacturers"
+  add_foreign_key "returns", "warranties"
   add_foreign_key "warranties", "products"
   add_foreign_key "warranties", "users"
 end
