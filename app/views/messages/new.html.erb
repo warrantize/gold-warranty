@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <div class="container">
+    <h1>Messages#new</h1>
+    <p>Find me in app/views/messages/new.html.erb</p>
+    <div class="commenting-form">
+      <%= simple_form_for  [@product, @warranty, @return, @message] do |f| %>
+        <div class="form-inputs checkout">
+          <div class="form-group">
+            <%= f.input :content,
+                                    as: :text,
+                                    label: "Message" %>
+          </div>
+        <div class="form-actions text-center">
+            <%= f.button :submit, "add a message", class: " btn-book" %>
+        </div>
+      </div>
+        <% end %>
+    </div>
+  </div>
+</div>

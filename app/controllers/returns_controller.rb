@@ -10,19 +10,23 @@ class ReturnsController < ApplicationController
     @return = Return.new(return_params)
     @return.warranty_id = @warranty.id
     if @return.save
-      redirect_to product_warranty_path(@product, @warranty)
+      redirect_to  product_warranty_return_path(@product, @warranty, @return)
     else
       render :new
     end
   end
 
   def show
+    @messages = Message.where(return_id: @return.id)
   end
 
   def edit
+    @messages = Message.where(return_id: @return.id)
   end
 
   def update
+    @return.update(return_params)
+      redirect_to  product_warranty_return_path(@product, @warranty, @return)
   end
 
   def destroy

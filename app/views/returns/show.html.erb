@@ -1,21 +1,28 @@
 <div class="wrapper">
   <div class="container">
     <H1>Return Details</H1>
-    <h2>Return</h2>
     <p><strong>Warranty expiration</strong> :  <%= @warranty.end_date %>  <br> <strong>  Return request made on</strong> : <%= @return.created_at %></p>
+    <p>Return Status : <%= @return.status  %> <%= link_to  "edit", edit_product_warranty_return_path(@return)  %></p>
+    <h2>messages</h2>
     <p> Initial Request : <%= @return.comment %></p>
-    <p>Return Status : <%= @return.status  %></p>
 
-    <h2>Product</h2>
-    <p>
-    <%= cl_image_tag(@product.photo, width: 200) %>
-    </p>
-    <h3><%= @manufacturer.manufacturer_name %> - <%= @product.product_name %> </h3>
+    <% @messages.each do |m| %>
+      <p><%= m.content %></p>
+    <% end %>
+
+
+    <h4>Product</h4>
+<!--     <p>
+ -->
+  <% # cl_image_tag(@product.photo, width: 200) %>
+ <!--     </p>
+ -->    <h3><%= @manufacturer.manufacturer_name %> - <%= @product.product_name %> </h3>
     <p>EAN : <%= @product.ean %> </p>
     <p><%= @category.category_name %> </p>
 
 
-    <%= link_to  "edit", edit_product_warranty_return_path(@return)  %>
+
+
 
 
   </div>
