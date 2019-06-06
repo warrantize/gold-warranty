@@ -27,6 +27,8 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @product.update(product_params)
+    redirect_to product_path(@product)
   end
 
   def destroy
@@ -40,6 +42,7 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:ean,
+      :asin,
       :product_name,
       :manufacturer_id,
       :category_id,

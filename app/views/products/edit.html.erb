@@ -1,7 +1,30 @@
 <div class="wrapper">
   <div class="container">
     <h1>Products#edit</h1>
-    <p>Find me in app/views/products/edit.html.erb</p>
+    <%= simple_form_for @product do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <%= f.association :category , label_method: :category_name, value_method: :id, include_blank: false %>
+      <%= f.association :manufacturer, label_method: :manufacturer_name, value_method: :id, include_blank: false %>
+      <%= f.input :product_name, html: { autocomplete: 'off' }, class:"form-controls" %>
+      <%= f.input :ean, html: { autocomplete: 'off' }, class:"form-controls" %>
+      <%= f.input :asin %>
+      <%= f.input :photo, class:"form-controls btn-form" %>
+      <%= f.input :photo_cache, as: :hidden %>
+       <%= f.button :submit, class: 'btn btn-flat' %>
+
+
+
+
+
+
+
+
+
+
+
+    <% end %>
   </div>
 </div>
 
