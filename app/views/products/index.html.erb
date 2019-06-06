@@ -5,6 +5,10 @@
 
     <% @products.each  do |product|  %>
       <p> <%= product.product_name %>   <%= link_to "upload my warranty" , new_product_warranty_path(product.id) , class: " btn btn-flat"  %>
+
+        <% if product.asin %>
+          <%= link_to "buy again on amazon" , "https://www.amazon.fr/dp/#{product.asin}/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=warrantize04-21&language=fr_FR", class: " btn btn-flat"   %>
+        <% end %>
     </p>
     <% end %>
   </div>

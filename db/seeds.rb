@@ -39,25 +39,31 @@ Product.destroy_all
 puts 'creating 4 products: '
 prod1 = Product.new(ean: '08801643248390',
                     product_name: 'Galaxy Note 9',
+                    asin: 'B07G7DHR13',
                     manufacturer_id: manu1.id,
                     category_id: cat1.id)
 prod1.save!
 prod2 = Product.new(ean: '08801643248391',
                     product_name: 'Galaxy Note 8',
+                    asin: 'B0751GCKKT',
                     manufacturer_id: manu1.id,
                     category_id: cat1.id)
 prod2.save!
 prod3 = Product.new(ean: '08806088754031',
                     product_name: 'Galaxy Book - 10.6',
+                    asin: 'B071LLV4YH',
                     manufacturer_id: manu1.id,
                     category_id: cat2.id)
 prod3.save!
 prod4 = Product.new(ean: '05397184163474',
                     product_name: 'XPS 15-9570',
+                    asin: 'B07G93YL63',
                     manufacturer_id: manu2.id,
                     category_id: cat2.id)
 prod4.save!
 
+# https://www.amazon.fr/dp/B07G93YL63/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=warrantize04-21&language=fr_FR
+# https://www.amazon.fr/dp/B071LLV4YH/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=warrantize04-21&language=fr_FR
 
 puts "clearing warranties"
 Warranty.destroy_all
