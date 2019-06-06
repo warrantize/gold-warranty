@@ -5,6 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+puts "deleting messages"
+Message.destroy_all
+
+puts "deleting return"
+Return.destroy_all
+
+puts "deleting warranties"
+Warranty.destroy_all
+
 puts "deleting test users"
 User.destroy_all
 
@@ -21,7 +32,6 @@ puts "#{cat1.category_name} saved with id #{cat1.id} "
 cat2 = Category.new(category_name: 'Computers')
 cat2.save!
 puts  "#{cat2.category_name} saved with id #{cat2.id} "
-
 
 puts "clearing manufacturers"
 Manufacturer.destroy_all
