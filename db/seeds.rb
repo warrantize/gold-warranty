@@ -23,6 +23,10 @@ puts "creating test user"
 test_user = User.new(email: 'jeremy.jouffroy@gmail.com', password: '123456')
 test_user.save!
 
+puts "clearing product"
+Product.destroy_all
+
+
 puts "clearing categories"
 Category.destroy_all
 puts 'creating 2 categories: '
@@ -44,8 +48,7 @@ manu2.save!
 puts  "#{manu2.manufacturer_name} saved with id #{manu2.id} "
 
 
-puts "clearing product"
-Product.destroy_all
+
 puts 'creating 4 products: '
 prod1 = Product.new(ean: '08801643248390',
                     product_name: 'Galaxy Note 9',
