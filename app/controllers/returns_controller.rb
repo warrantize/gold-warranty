@@ -1,4 +1,5 @@
 class ReturnsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_warranty, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :set_return, only: [:show, :edit, :update, :destroy]
 
