@@ -1,8 +1,7 @@
 class WarrantiesController < ApplicationController
-
-    before_action :set_warranty, only: [:show, :edit, :update]
-    before_action :set_product, only: [:new, :create, :show, :update, :destroy]
-
+  before_action :authenticate_user!
+  before_action :set_warranty, only: [:show, :edit, :update]
+  before_action :set_product, only: [:new, :create, :show, :update, :destroy]
 
   def index
   end

@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_return, only: [:index, :show, :new, :create, :edit, :update]
+  before_action :authenticate_user!
 
   def index
     @messages = Message.find_by(:return_id)
