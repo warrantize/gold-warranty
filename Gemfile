@@ -15,6 +15,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'pundit'
 
 # adding some gem to upload images
 gem 'cloudinary', '~> 1.9.1'
