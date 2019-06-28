@@ -19,9 +19,12 @@ Warranty.destroy_all
 puts "deleting test users"
 User.destroy_all
 
-puts "creating test user"
-test_user = User.new(email: 'jeremy.jouffroy@gmail.com', password: '123456')
+puts "creating test user with admin@warrantize.co"
+test_user = User.new(email: 'admin@warrantize.co', password: '123456', admin: true)
 test_user.save!
+puts "creating test user with test@warrantize.co"
+test_user2 = User.new(email: 'tester@warrantize.co', password: '123456')
+test_user2.save!
 
 puts "clearing product"
 Product.destroy_all
@@ -90,7 +93,7 @@ war2.save!
 war3 = Warranty.new(begin_date: Date.new(2019,1,1), user_id: test_user.id, product_id: prod3.id)
 war3.end_date = war3.begin_date + 365*2
 war3.save!
-war4 = Warranty.new(begin_date: Date.new(2019,2,1), user_id: test_user.id, product_id: prod4.id)
+war4 = Warranty.new(begin_date: Date.new(2019,2,1), user_id: test_user2.id, product_id: prod4.id)
 war4.end_date = war4.begin_date + 365*2
 war4.save!
 
