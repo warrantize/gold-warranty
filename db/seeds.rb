@@ -22,7 +22,7 @@ User.destroy_all
 puts "creating test user with admin@warrantize.co"
 test_user = User.new(email: 'admin@warrantize.co', password: '123456', admin: true)
 test_user.save!
-puts "creating test user with test@warrantize.co"
+puts "creating test user with tester@warrantize.co"
 test_user2 = User.new(email: 'tester@warrantize.co', password: '123456')
 test_user2.save!
 
