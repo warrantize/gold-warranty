@@ -1,7 +1,9 @@
 <div class="wrapper">
   <div class="container">
     <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+    <% if current_user.admin? %>
+    <p>You are currently an admin</p>
+    <% end %>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 
