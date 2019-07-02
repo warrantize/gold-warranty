@@ -11,7 +11,9 @@ class ApplicationPolicy
   end
 
   def show?
-    false
+    scope.where(:id => record.id).exists?
+    # par defaut on considere que toutes les entités peuvent etre montrés
+    # si elle ont été créés. a surchagé sur warranty return et message
   end
 
   def create?
