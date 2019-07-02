@@ -6,15 +6,19 @@ class ProductPolicy < ApplicationPolicy
   end
 
   def create?
-     true
+    true # tous les users peuvent créer des restaurants
   end
 
   def new?
     create?
   end
 
+  def show?
+    true
+  end
+
   def update?
-    record.user == user || user.admin?
+    user.admin?
   end
 
    def edit?
@@ -22,7 +26,7 @@ class ProductPolicy < ApplicationPolicy
    end
 
    def destroy?
-     record.user == user || user.admin?
+    user.admin?
    end
 
 end
