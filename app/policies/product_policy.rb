@@ -26,7 +26,7 @@ class ProductPolicy < ApplicationPolicy
    end
 
    def destroy?
-    user.admin?
+    update?
    end
 
 end

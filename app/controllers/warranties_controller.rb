@@ -9,11 +9,12 @@ class WarrantiesController < ApplicationController
 
   def new
     @warranty = Warranty.new
+    authorize @warranty
   end
 
   def create
-    @product = Product.find(params[:product_id])
     @warranty = Warranty.new(warranty_params)
+    authorize @warranty
     @warranty.product_id = @product.id
     @warranty.end_date = @warranty.begin_date + 365*2
     @warranty.user_id = current_user.id
@@ -24,8 +25,6 @@ class WarrantiesController < ApplicationController
       render :new
     end
   end
-
-
 
   def edit
   end
@@ -42,6 +41,7 @@ class WarrantiesController < ApplicationController
   private
     def set_warranty
       @warranty = Warranty.find(params[:id])
+      authorize @warranty
       @product = Product.find(params[:product_id])
       @category = Category.find(@product.category_id)
       @manufacturer = Manufacturer.find(@product.manufacturer_id)
