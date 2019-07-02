@@ -9,6 +9,14 @@
         <% if product.asin %>
           <%= link_to "buy again on amazon" , "https://www.amazon.fr/dp/#{product.asin}/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=warrantize04-21&language=fr_FR", class: " btn btn-flat"   %>
         <% end %>
+
+        <% # if policy(Product).edit? %>
+          <%= link_to "update product", edit_product_path(product.id), class: " btn btn-flat"  %>
+        <% # end %>
+
+         <%= link_to "view product", product_path(product.id), class: " btn btn-flat"  %>
+
+
     </p>
     <% end %>
    <h2>Not seeing yours ? </h2>

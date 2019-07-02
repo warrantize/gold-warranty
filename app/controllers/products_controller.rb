@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update]
   before_action :authenticate_user!, :except =>  [:index, :show]
   def index
-    @products = Product.all
+    @products = policy_scope(Product)
   end
 
  def create
@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def edit
