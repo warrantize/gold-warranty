@@ -5,10 +5,12 @@ class ReturnsController < ApplicationController
 
   def new
     @return = Return.new()
+    authorize @return
   end
 
   def create
     @return = Return.new(return_params)
+    authorize @return
     @return.warranty_id = @warranty.id
     if @return.save
       redirect_to  product_warranty_return_path(@product, @warranty, @return)
@@ -27,7 +29,7 @@ class ReturnsController < ApplicationController
 
   def update
     @return.update(return_params)
-      redirect_to  product_warranty_return_path(@product, @warranty, @return)
+    redirect_to  product_warranty_return_path(@product, @warranty, @return)
   end
 
   def destroy
@@ -44,6 +46,7 @@ private
 
     def set_return
       @return = Return.find(params[:id])
+      authorize @return
     end
 
     def return_params
