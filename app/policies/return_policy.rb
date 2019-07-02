@@ -1,5 +1,10 @@
 class ReturnPolicy < ApplicationPolicy
   class Scope < Scope
+    # def initialize(user, scope)
+    #   @user = scope.warranty.user
+    #   @scope = scope
+    # end
+
     def resolve
       scope.all
     end
@@ -14,11 +19,11 @@ class ReturnPolicy < ApplicationPolicy
   end
 
   def show?
-    user_is_creator_or_admin
+    user_is_owner_or_admin
   end
 
   def update?
-    user_is_creator_or_admin
+    user.admin
   end
 
    def edit?
@@ -28,4 +33,9 @@ class ReturnPolicy < ApplicationPolicy
    def destroy?
     update?
    end
+ private
+
+  def user_is_owner_or_admin
+    user.admin || record.warranty.user == user
+  end
 end

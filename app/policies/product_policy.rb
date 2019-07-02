@@ -29,4 +29,7 @@ class ProductPolicy < ApplicationPolicy
     update?
    end
 
+
+
+
 end
