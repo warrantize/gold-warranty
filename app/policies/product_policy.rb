@@ -5,6 +5,8 @@ class ProductPolicy < ApplicationPolicy
     end
   end
 
+
+
   def create?
     true # tous les users peuvent créer des restaurants
   end
@@ -18,7 +20,7 @@ class ProductPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin?
+    user.admin
   end
 
    def edit?
