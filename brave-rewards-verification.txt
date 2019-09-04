@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: warrantize.co
+Token: f4ce24e32d34e4f6743ee68702ded97f43ba2dd23b20752da448061290df5d29
