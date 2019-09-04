@@ -25,6 +25,9 @@ gem 'carrierwave', '~> 1.2'
 # gem 'amazon-ecs', '~> 2.6'
 # gem 'nokogiri', '~> 1.10', '>= 1.10.3'
 
+# gem to manage static file routes
+gem 'rails-static-router'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

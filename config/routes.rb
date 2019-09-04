@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     end
   end
-get '/.well-known/brave-rewards-verification.txt', :to => redirect('brave-rewards-verification.txt')
+get '/.well-known/brave-rewards-verification.txt', to: static('brave-rewards-verification.txt')
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
