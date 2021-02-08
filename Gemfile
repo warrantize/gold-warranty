@@ -19,7 +19,7 @@ gem 'pundit'
 
 # adding some gem to upload images
 gem 'cloudinary', '~> 1.9.1'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 
 # amazon
 # gem 'amazon-ecs', '~> 2.6'
